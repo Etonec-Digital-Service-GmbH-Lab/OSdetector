@@ -6,5 +6,5 @@ services:
     image: os-detector:latest
     container_name: os-detector
     ports:
-      - "3000:3000"
+      - "${OS_DETECTOR_PORT:-3000}:3000"
     restart: unless-stopped
