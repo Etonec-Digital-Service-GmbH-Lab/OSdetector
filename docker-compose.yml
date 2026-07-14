@@ -1,0 +1,10 @@
+services:
+  os-detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: os-detector:latest
+    container_name: os-detector
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
