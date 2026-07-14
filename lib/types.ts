@@ -34,6 +34,7 @@ export interface NetworkInfo {
   timezone: string | null;
   isp: string | null;
   asn: string | null;
+  connectionType: 'hosting' | 'proxy' | 'mobile' | 'residential' | null;
   source: 'forwarded-header' | 'direct-connection' | 'unavailable';
   error?: string;
 }

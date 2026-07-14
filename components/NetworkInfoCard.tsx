@@ -25,11 +25,22 @@ export function NetworkInfoCard() {
 
   const location = [info?.city, info?.region, info?.countryCode].filter(Boolean).join(', ');
 
+  const connectionTypeLabel: Record<NonNullable<NetworkInfo['connectionType']>, string> = {
+    hosting: 'Hosting / datacenter',
+    proxy: 'Proxy / VPN',
+    mobile: 'Mobile carrier',
+    residential: 'Residential / business',
+  };
+
   return (
     <Card title="Network" accent="red">
       <InfoRow label="IP address" value={info?.ip ?? (info ? 'unavailable' : 'looking up…')} />
       <InfoRow label="ISP / Organization" value={info?.isp} />
       <InfoRow label="ASN" value={info?.asn} />
+      <InfoRow
+        label="Connection type"
+        value={info?.connectionType ? connectionTypeLabel[info.connectionType] : undefined}
+      />
       <InfoRow label="Location" value={location || undefined} />
       <InfoRow label="Postal code" value={info?.postalCode} />
       <InfoRow
